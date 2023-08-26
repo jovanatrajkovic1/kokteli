@@ -1,9 +1,9 @@
 import React from 'react'; 
 
-function KoktelKartica({ cocktail }) {
+function KoktelKartica({ cocktail,image }) {
     return (
         <div className="koktel-kartica">
-              <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt={cocktail.name} className="koktel-image" />
+              <img src={image} alt={cocktail.name} className="koktel-image" />
             <h2 className="koktel-title">{cocktail.name}</h2>
             <p className="koktel-description">{cocktail.description}</p>
             

@@ -4,6 +4,7 @@ import './App.css';
 import Pocetna from './Pocetna';
 import Kokteli from './Kokteli';
 import Login from './Login';
+import Register from './Register';
 const axiosInstance = axios.create({
   baseURL: 'http://127.0.0.1:8000/', 
   
@@ -29,6 +30,8 @@ function App() {
        <Pocetna></Pocetna>
        <Kokteli kokteli={cocktails}></Kokteli>
        <Login></Login>
+       <Register></Register>
+
     </div>
   );
 }

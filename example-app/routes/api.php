@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('/reviews', [ReviewController::class, 'store']);
 Route::prefix('cocktails')->group(function () {
     Route::get('/', [CocktailController::class, 'index']);        // Lista svih koktela
     Route::get('/{id}', [CocktailController::class, 'show']);     // Prikaz određenog koktela

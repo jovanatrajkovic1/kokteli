@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,7 @@ Route::prefix('cocktails')->group(function () {
     Route::put('/{id}', [CocktailController::class, 'update']);   // Ažuriranje određenog koktela
     Route::delete('/{id}', [CocktailController::class, 'destroy']); // Brisanje određenog koktela
 });
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::middleware(['auth:sanctum'])->post('/logout', [AuthController::class, 'logout']);

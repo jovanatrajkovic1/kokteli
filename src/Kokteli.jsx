@@ -3,12 +3,23 @@ import KoktelKartica from './KoktelKartica';
 import axios from 'axios';
 
 function Kokteli({ kokteli }) {
-    const [searchTerm, setSearchTerm] = useState(''); // Držimo trenutni tekst pretrage u state-u
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortByRating, setSortByRating] = useState(false); // Držimo da li je sortiranje po oceni aktivno
 
-    // Filtriramo koktele na osnovu unosa korisnika
     const filteredKokteli = kokteli.filter(koktel => 
         koktel.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    // Računamo prosečnu ocenu za svaki koktel
+    const averageRating = (reviews) => {
+        const total = reviews.reduce((acc, review) => acc + review.rating, 0);
+        return reviews.length ? total / reviews.length : 0;
+    };
+
+    const sortedKokteli = sortByRating 
+        ? [...filteredKokteli].sort((a, b) => averageRating(b.reviews) - averageRating(a.reviews))
+        : filteredKokteli;
+
     const [images, setImages] = useState([]);
 
     useEffect(() => {
@@ -26,20 +37,23 @@ function Kokteli({ kokteli }) {
 
         fetchRandomCocktailImages();
     }, []);
+
     return (
         <div className="kokteli-container">
-            {/* Input polje za pretragu */}
-            <div className="search-container">
+            <div className="controls-container">
                 <input
                     type="text"
                     placeholder="Pretraži koktele..."
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
                 />
+                {/* Dugme za sortiranje po oceni */}
+                <button onClick={() => setSortByRating(prev => !prev)}>
+                    Sortiraj po oceni
+                </button>
             </div>
 
-            {/* Prikazujemo filtrirane koktele */}
-            {filteredKokteli.map((koktel,i) => (
+            {sortedKokteli.map((koktel, i) => (
                 <KoktelKartica key={koktel.id} cocktail={koktel} image={images[i]} />
             ))}
         </div>

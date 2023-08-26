@@ -1,0 +1,41 @@
+.koktel-kartica {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 400px;
+  color: white;
+}
+
+.koktel-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.koktel-description {
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.ingredients-list, .reviews-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.ingredients-list li, .reviews-list li {
+  margin-bottom: 8px;
+}
+
+.reviews-list li {
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+.kokteli-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;  /* Ovo će dati razmak između kartica */
+  justify-content: center;  /* Centriranje kartica */
+}

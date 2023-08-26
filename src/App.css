@@ -18,6 +18,14 @@
   margin-bottom: 16px;
   font-style: italic;
 }
+.koktel-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+  border-radius: 8px;
+}
 
 .ingredients-list, .reviews-list {
   list-style-type: none;

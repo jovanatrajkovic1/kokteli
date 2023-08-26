@@ -25,12 +25,14 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Mika',
                 'email' => 'mika@example.com',
-                'password' => Hash::make('password123')  
+                'password' => Hash::make('password123')  ,
+                'role'=>'user'
             ],
             [
                 'name' => 'Zika',
                 'email' => 'zika@example.com',
-                'password' => Hash::make('password123')  
+                'password' => Hash::make('password123')  ,
+                'role'=>'user'
             ],
         ];
 

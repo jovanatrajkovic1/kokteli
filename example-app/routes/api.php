@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('cocktails')->group(function () {
+    Route::get('/', [CocktailController::class, 'index']);        // Lista svih koktela
+    Route::get('/{id}', [CocktailController::class, 'show']);     // Prikaz određenog koktela
+    Route::post('/', [CocktailController::class, 'store']);       // Kreiranje novog koktela
+    Route::put('/{id}', [CocktailController::class, 'update']);   // Ažuriranje određenog koktela
+    Route::delete('/{id}', [CocktailController::class, 'destroy']); // Brisanje određenog koktela
 });

@@ -8,6 +8,7 @@ import Register from './Register';
 import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import Admin from './Admin';
+import Azuriraj from './Azuriraj';
 const axiosInstance = axios.create({
   baseURL: 'http://127.0.0.1:8000/', 
   
@@ -40,6 +41,8 @@ function App() {
           <Route path="/kokteli"     element={ <Kokteli kokteli={cocktails} />}> </Route>
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/azuriraj/:id" element={<Azuriraj kokteli={cocktails} setKokteli={setCocktails} />} />
+
         </Routes>
       </div>
     </Router>

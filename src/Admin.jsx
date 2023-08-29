@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Admin({ kokteli ,setKokteli}) {
     const handleDelete = async (id) => {
@@ -19,6 +20,7 @@ function Admin({ kokteli ,setKokteli}) {
             console.error('Došlo je do greške prilikom brisanja koktela', error);
         }
     };
+    const navigate = useNavigate();
     return (
         <div className="admin-container">
             <h1>Admin Panel: Pregled koktela</h1>
@@ -49,6 +51,7 @@ function Admin({ kokteli ,setKokteli}) {
                             </td>
                             <td>
                                 <button onClick={() => handleDelete(koktel.id)}>Obriši koktel</button>
+                                <button onClick={() => navigate(`/azuriraj/${koktel.id}`)}>Ažuriraj koktel</button>
                             </td>
                         </tr>
                     ))}

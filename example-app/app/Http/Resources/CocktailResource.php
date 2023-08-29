@@ -41,7 +41,7 @@ class CocktailResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'ingredients' => $cocktailPripadnosti,
-            'reviews' => $cocktailReviews // Dodajte ovu liniju da biste uključili recenzije
+            'reviews' => $cocktailReviews  
         ];
     }
 }

@@ -20,7 +20,7 @@ function Register() {
             });
 
             if (response.status === 200 || response.status === 201) {
-                // Pretpostavljam da server vraća status 200 ili 201 za uspešnu registraciju.
+               
                 navigate('/login');
             } else {
                 console.error('Došlo je do greške prilikom registracije');

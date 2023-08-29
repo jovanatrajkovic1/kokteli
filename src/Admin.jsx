@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom';
 function Admin({ kokteli ,setKokteli}) {
     const handleDelete = async (id) => {
         try {
-            const token = sessionStorage.getItem('auth_token'); // Preuzmite token iz session storage-a
+            const token = sessionStorage.getItem('auth_token'); 
             await axios.delete(`http://127.0.0.1:8000/api/cocktails/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
             
-            // Osvežavanje liste koktela tako da se ukloni obrisan koktel
+            
             const updatedKokteli = kokteli.filter(koktel => koktel.id !== id);
             setKokteli(updatedKokteli);
 
@@ -37,7 +37,7 @@ function Admin({ kokteli ,setKokteli}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {kokteli.map(koktel => (
+                    {kokteli && kokteli.map(koktel => (
                         <tr key={koktel.id}>
                             <td>{koktel.id}</td>
                             <td>{koktel.name}</td>

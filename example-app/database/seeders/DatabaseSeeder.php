@@ -15,28 +15,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $users = [
-        //     [
-        //         'name' => 'Pera',
-        //         'email' => 'pera@example.com',
-        //         'password' => Hash::make('password123') ,
-        //         'role'=>'admin'
-        //     ],
-        //     [
-        //         'name' => 'Mika',
-        //         'email' => 'mika@example.com',
-        //         'password' => Hash::make('password123')  ,
-        //         'role'=>'user'
-        //     ],
-        //     [
-        //         'name' => 'Zika',
-        //         'email' => 'zika@example.com',
-        //         'password' => Hash::make('password123')  ,
-        //         'role'=>'user'
-        //     ],
-        // ];
+        $users = [
+            [
+                'name' => 'Pera',
+                'email' => 'pera@example.com',
+                'password' => Hash::make('password123') ,
+                'role'=>'admin'
+            ],
+            [
+                'name' => 'Mika',
+                'email' => 'mika@example.com',
+                'password' => Hash::make('password123')  ,
+                'role'=>'user'
+            ],
+            [
+                'name' => 'Zika',
+                'email' => 'zika@example.com',
+                'password' => Hash::make('password123')  ,
+                'role'=>'user'
+            ],
+        ];
 
-        // DB::table('users')->insert($users);
+        DB::table('users')->insert($users);
         $this->call([
            
             IngredientSeeder::class,

@@ -8,9 +8,7 @@ function Navbar({ token,setToken }) {
   const handleLogout = async () => {
     try {
       
-        const authToken = sessionStorage.getItem('auth_token');
-
-      
+        const authToken = sessionStorage.getItem('auth_token'); 
         const config = {
             headers: {
                 'Authorization': `Bearer ${authToken}`
@@ -33,14 +31,21 @@ function Navbar({ token,setToken }) {
   return (
     <nav className="navbar">
       <Link className="navbar-item" to="/">Početna</Link>
-      <Link className="navbar-item" to="/kokteli">Kokteli</Link>
+   
       {!token ? (
         <>
           <Link className="navbar-item" to="/login">Login</Link>
           <Link className="navbar-item" to="/register">Register</Link>
         </>
       ) : (
-        <button onClick={handleLogout} className="navbar-item">Logout</button>
+        window.sessionStorage.getItem("role")=="admin"?  <>
+        <Link className="navbar-item" to="/admin">Admin</Link>
+        <button onClick={handleLogout} >Logout</button></>
+        :
+
+        <>
+        <Link className="navbar-item" to="/kokteli">Kokteli</Link>
+        <button onClick={handleLogout}  >Logout</button></>
       )}
     </nav>
   );

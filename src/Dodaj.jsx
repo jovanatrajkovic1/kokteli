@@ -40,7 +40,7 @@ function Dodaj({setKokteli}) {
             });
     
           
-            const newCocktail = response.data;
+            const newCocktail = response.data.data;
             setKokteli(prevKokteli => [...prevKokteli, newCocktail]);
     
             navigate('/admin');

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-function Azuriraj({ kokteli, setKokteli }) {
+function Azuriraj({ kokteli, setKokteli ,refresh}) {
     const { id } = useParams();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    // ... Slično za ostale atribute koktela ...
+    let navigate = useNavigate();
 
     useEffect(() => {
         const cocktail = kokteli.find(k => k.id === parseInt(id));
         if (cocktail) {
             setName(cocktail.name);
             setDescription(cocktail.description);
-            // ... Slično za ostale atribute koktela ...
+           
         }
     }, [id, kokteli]);
 
@@ -25,15 +25,16 @@ function Azuriraj({ kokteli, setKokteli }) {
             const response = await axios.put(`http://127.0.0.1:8000/api/cocktails/${id}`, {
                 name,
                 description,
-                // ... Slično za ostale atribute koktela ...
+            
             }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
-
-            const updatedCocktail = response.data; // Pretpostavljajući da server vraća ažurirani koktel kao odgovor
+            console.log(response.data.data)
+            const updatedCocktail = response.data.data
             setKokteli(prevKokteli => prevKokteli.map(k => k.id === updatedCocktail.id ? updatedCocktail : k));
+            navigate('/admin')
         } catch (error) {
             console.error('Došlo je do greške prilikom ažuriranja koktela', error);
         }

@@ -26,6 +26,8 @@ Route::prefix('cocktails')->group(function () {
 });
 Route::get('/ingredients', [IngredientController::class, 'index']);
 
+
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum'])->post('/logout', [AuthController::class, 'logout']);

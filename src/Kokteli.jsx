@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function Kokteli({ kokteli }) {
     const [searchTerm, setSearchTerm] = useState('');
-    const [sortByRating, setSortByRating] = useState(false); // Držimo da li je sortiranje po oceni aktivno
+    const [sortByRating, setSortByRating] = useState(false);  
 
     const filteredKokteli = kokteli.filter(koktel => 
         koktel.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -47,7 +47,7 @@ function Kokteli({ kokteli }) {
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
         />
-        {/* Dugme za sortiranje po oceni */}
+       
         <button onClick={() => setSortByRating(prev => !prev)}>
             Sortiraj po oceni
         </button>

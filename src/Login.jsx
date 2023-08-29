@@ -20,7 +20,14 @@ function Login({setToken}) {
             if (response.status === 200) {
                 sessionStorage.setItem("auth_token",response.data.token)
                 setToken(response.data.token)
-                navigate('/kokteli');  
+                sessionStorage.setItem("role",response.data.role)
+
+                if(response.data.role=="admin"){
+                    navigate('/admin');  
+                }else{
+                    navigate('/kokteli');  
+                }
+                
             } else {
                 console.error('Došlo je do greške prilikom prijave');
             }

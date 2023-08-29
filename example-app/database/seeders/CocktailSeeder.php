@@ -69,7 +69,7 @@ class CocktailSeeder extends Seeder
             
         ];
 
-        DB::table('pripadnost')->insert($pripadnosti);
+       DB::table('pripadnost')->insert($pripadnosti);
 
     }
 }

@@ -5,12 +5,15 @@ import Pocetna from './Pocetna';
 import Kokteli from './Kokteli';
 import Login from './Login';
 import Register from './Register';
+import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import Navbar from './Navbar';
 const axiosInstance = axios.create({
   baseURL: 'http://127.0.0.1:8000/', 
   
 });
 function App() {
   const [cocktails, setCocktails] = useState([]);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
       const fetchData = async () => {
@@ -26,13 +29,17 @@ function App() {
   }, []);
   console.log(cocktails)
   return (
-    <div className="App">
-       <Pocetna></Pocetna>
-       <Kokteli kokteli={cocktails}></Kokteli>
-       <Login></Login>
-       <Register></Register>
-
-    </div>
+    <Router>
+      <Navbar></Navbar>
+      <div className="App">
+        <Routes>
+          <Route   path="/" element={<Pocetna/>} />
+          <Route path="/kokteli"     element={ <Kokteli kokteli={cocktails} />}> </Route>
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

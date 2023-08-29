@@ -40,7 +40,7 @@ function Azuriraj({ kokteli, setKokteli }) {
     };
 
     return (
-        <div className="azuriraj-container">
+        <div className="dodaj-container">
             <h1>Ažuriraj Koktel</h1>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -49,12 +49,13 @@ function Azuriraj({ kokteli, setKokteli }) {
                     onChange={e => setName(e.target.value)}
                     placeholder="Ime koktela"
                 />
+                <br /><br />
                 <textarea 
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     placeholder="Opis koktela"
                 />
-                {/* ... Ostali input polja ... */}
+                 <br /><br />
                 <button type="submit">Ažuriraj</button>
             </form>
         </div>

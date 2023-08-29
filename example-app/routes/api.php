@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CocktailController;
+use App\Http\Controllers\IngredientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::prefix('cocktails')->group(function () {
     Route::put('/{id}', [CocktailController::class, 'update']);   // Ažuriranje određenog koktela
     Route::delete('/{id}', [CocktailController::class, 'destroy']); // Brisanje određenog koktela
 });
+Route::get('/ingredients', [IngredientController::class, 'index']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

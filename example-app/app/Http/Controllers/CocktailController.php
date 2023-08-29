@@ -52,6 +52,7 @@ class CocktailController extends Controller
                 DB::table('pripadnost')->insert([
                     'cocktail_id' => $cocktail->id,
                     'ingredient_id' => $ingredient_id,
+                    'amount' => '20ml',
                 ]);
             }
         }

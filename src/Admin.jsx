@@ -24,7 +24,7 @@ function Admin({ kokteli ,setKokteli}) {
     return (
         <div className="admin-container">
             <h1>Admin Panel: Pregled koktela</h1>
-            
+            <button onClick={() => navigate('/dodaj')}>Dodaj koktel</button>
             <table className="kokteli-table">
                 <thead>
                     <tr>

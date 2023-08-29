@@ -197,3 +197,54 @@
 .kokteli-table td ul li {
   padding: 2px 0;
 }
+ 
+
+.dodaj-container {
+  background-color: #222; /* Tamna pozadina */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Centriranje po horizontali uz dodatni razmak */
+  max-width: 500px; /* Ograničavanje širine forme */
+  color: white;
+  padding: 20px;
+}
+
+.dodaj-container h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.dodaj-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dodaj-container input,
+.dodaj-container textarea,
+.dodaj-container button {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid white;
+  background-color: #333; /* Malo svetlija pozadina za input i textarea u odnosu na kontejner */
+  color: white;
+  font-size: 16px;
+}
+
+.dodaj-container input::placeholder,
+.dodaj-container textarea::placeholder {
+  color: #888; /* Svetlija siva boja za placeholder tekst */
+}
+
+.dodaj-container button {
+  background-color: #444; /* Svetlija pozadina za dugme u odnosu na input i textarea */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  border: none;
+}
+
+.dodaj-container button:hover {
+  background-color: #555; /* Još svetlija pozadina kada se pređe mišem preko dugmeta */
+}

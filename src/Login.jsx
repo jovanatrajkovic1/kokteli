@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
- 
-function Login() {
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
+
+function Login({setToken}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
+    const navigate = useNavigate();  
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Logika za prijavljivanje korisnika...
-        console.log("Prijavljen:", { email, password });
+        
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/login', {
+                email: email,
+                password: password
+            });
+
+            if (response.status === 200) {
+                sessionStorage.setItem("auth_token",response.data.token)
+                setToken(response.data.token)
+                navigate('/kokteli');  
+            } else {
+                console.error('Došlo je do greške prilikom prijave');
+            }
+        } catch (error) {
+            console.error('Došlo je do greške prilikom prijave', error);
+        }
     };
 
     return (

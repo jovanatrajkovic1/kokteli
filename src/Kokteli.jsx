@@ -39,24 +39,26 @@ function Kokteli({ kokteli }) {
     }, []);
 
     return (
+        <>
+        <div className="controls-container">
+        <input
+            type="text"
+            placeholder="Pretraži koktele..."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+        />
+        {/* Dugme za sortiranje po oceni */}
+        <button onClick={() => setSortByRating(prev => !prev)}>
+            Sortiraj po oceni
+        </button>
+    </div>
         <div className="kokteli-container">
-            <div className="controls-container">
-                <input
-                    type="text"
-                    placeholder="Pretraži koktele..."
-                    value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                />
-                {/* Dugme za sortiranje po oceni */}
-                <button onClick={() => setSortByRating(prev => !prev)}>
-                    Sortiraj po oceni
-                </button>
-            </div>
+            
 
             {sortedKokteli.map((koktel, i) => (
                 <KoktelKartica key={koktel.id} cocktail={koktel} image={images[i]} />
             ))}
-        </div>
+        </div> </>
     );
 }
 

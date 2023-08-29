@@ -15,8 +15,8 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:user,admin', // Pretpostavljajući da su uloge 'user' i 'admin'
+            'password' => 'required|string|min:8',
+           
         ]);
 
         if ($validator->fails()) {
@@ -27,7 +27,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' =>'user',
         ]);
 
         $token = $user->createToken('api_token')->plainTextToken;

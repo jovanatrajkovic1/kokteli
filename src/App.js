@@ -30,12 +30,12 @@ function App() {
   console.log(cocktails)
   return (
     <Router>
-      <Navbar></Navbar>
+      <Navbar token={token} setToken={setToken}></Navbar>
       <div className="App">
         <Routes>
           <Route   path="/" element={<Pocetna/>} />
           <Route path="/kokteli"     element={ <Kokteli kokteli={cocktails} />}> </Route>
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<Login setToken={setToken}/>} />
           <Route path="/register" element={<Register/>} />
         </Routes>
       </div>

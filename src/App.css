@@ -1,11 +1,13 @@
 .koktel-kartica {
   border: 1px solid #ccc;
-  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  max-width: 400px;
-  color: white;
+  margin: 10px;   
+  max-width: 250px;  
+  color: black;
+  flex: 1;  
+  min-width: 200px;  
+  padding: 2%;
 }
 
 .koktel-title {
@@ -18,9 +20,9 @@
   margin-bottom: 16px;
   font-style: italic;
 }
+
 .koktel-image {
   width: 100%;
-  max-width: 300px;
   height: auto;
   margin: 0 auto 20px;
   display: block;
@@ -42,10 +44,12 @@
 }
 
 .kokteli-container {
+  margin: 5%;
+
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;  /* Ovo će dati razmak između kartica */
-  justify-content: center;  /* Centriranje kartica */
+  justify-content: space-between;  
+  align-items: start;   
 }
 
 

@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
- 
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
 
-    const handleSubmit = (event) => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Logika za registraciju korisnika...
-        console.log("Registrovan:", { email, password, name });
+
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/register', {
+                name: name,
+                email: email,
+                password: password
+            });
+
+            if (response.status === 200 || response.status === 201) {
+                // Pretpostavljam da server vraća status 200 ili 201 za uspešnu registraciju.
+                navigate('/login');
+            } else {
+                console.error('Došlo je do greške prilikom registracije');
+            }
+        } catch (error) {
+            console.error('Došlo je do greške prilikom registracije', error);
+        }
     };
 
     return (
